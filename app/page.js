@@ -3,93 +3,34 @@ import styles from "./page.module.css";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+   <div className={styles.pageContainer}>
+    <div className={styles.pageContent}>
+      <div className={styles.heroSection}> {/* I want some sort of animated abstract background. dark grey against the page's black. either particles like here, https://www.youtube.com/watch?v=F20SxgG5MlM or some sort of animation on a mask over a graphic */}
+      <div className={styles.heroHeadingTextContainer}> {/* going to need this to be a flex row */}
+        <div className={styles.heroTextWhite}>Hi!</div> <div className={styles.heroTextWhite}>I'm</div> <div className={styles.heroTextColor}>Dean</div> {/* background clip gradient on my name */}
         </div>
+        <div className={styles.heroSubText}>I'm your new</div>
+        {/* this is where i'd put something like 'I'm your new... */}
+        <div className={styles.heroAccentText}>Designer, Develop....</div>
+        {/* text that rotates vertically between, Designer (some font), Developer (some mono font), Creative (some scripty font) */}
+        {/* https://www.youtube.com/watch?v=f0qX-lkk8Y8 */}
+        </div>
+      <div className={styles.workOverviewSection}>
+        {/* Heading: I've Worked On...  */}
+          {/* Websites - Give 3 examples */}
+          {/* Web Apps - Give 3 examples */}
+        {/* Heading: I'm a toggle[Photo/Video] pro  */}
+          {/* Small Image Gallery/Demo reel based on toggle  */}
+        {/* Heading: And I've got some great skills in other areas*/}
+        {/* Subheading: (even if they dont get their own sections*/}
+          {/* Skills boxes */}
+        </div>
+      <div className={styles.CTASection}>
+        {/* Subheading: I know I'd make a great addition to your team, but in case you're not convinced */}  
+        {/* Heading: Let's Chat */}  
+          {/* EMAIL  */}  
+        </div>      
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </div>
   );
 }
