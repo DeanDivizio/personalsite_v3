@@ -1,5 +1,5 @@
 .pageContainer{
-  background-image: linear-gradient(120deg, #0f130f3e 25%, #00519e6c 100%); ;
+  background-image: linear-gradient(120deg, #0f130f3e 25%, #00519e6c 100%);
 }
 .pageContainer canvas{
   position: fixed;
@@ -8,7 +8,9 @@
   z-index: -1;
   width: 100%;
   background-color: #00000000;
-
+}
+.pageContent{
+  backdrop-filter: blur(5px);
 }
 .heroSection{
     display: flex;
@@ -45,7 +47,7 @@
   color: #00000000;
 }
 .heroSubText {
-  font-size: calc(2rem + 1.5vw);
+  font-size: calc(1rem + 1.5vw);
   font-weight: 100;
   letter-spacing: 0.3vw;
   font-style: italic;
@@ -56,7 +58,7 @@
   margin-bottom: 6vh;
 }
 .heroAccentText{
-  height: 200px;
+  height: calc(3rem + 6vw);
   /* padding: 20px; */
   overflow: hidden;
   display: flex;
@@ -67,7 +69,7 @@
   background-clip: text;
 }
 .heroAccentText span {
-  animation: rotateWords 6s infinite;
+  animation: rotateWords 6s infinite both;
   display: block;
   padding:0;
   /* transform: translateY(-300%) */
@@ -99,8 +101,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 6vh;
-
+  margin-top: 20vh;
+}
+.heroCTA img{
+  transform: scale(1.5);
 }
 @keyframes rotateWords {
   0% { transform: translateY(0); }
@@ -110,4 +114,55 @@
   66% { transform: translateY(-200%); }
   91% { transform: translateY(-312%); }
   100% { transform: translateY(-300%); }
+}
+.workOverviewSection{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 10vh 0;
+  height: 80vh;
+  /* background-image: linear-gradient(120deg, #0e140eaf 0%, #141a1f9c 100%); */
+  background-color: #00000081;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 50px 5px rgba(0, 0, 0, 0.449);
+}
+
+.CTASection{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 20vh 0;
+  height: 80vh;
+}
+
+.CTAButton{
+  background: linear-gradient(120deg, #0fdf32, #0073ff);
+  background-size: 200% 200%;
+  animation: pulse 5s ease-in-out infinite;
+  background-clip: text;
+}
+
+.CTAButton a{
+  color: #00000000;
+  font-weight: 200;
+  transition: all 0.3s ease;
+}
+.CTAButton a:hover{
+  color: #ffffff;
+  text-decoration: underline;
+  transform: scale(1.2);
+  letter-spacing: 4px;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
