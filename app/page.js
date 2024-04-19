@@ -1,5 +1,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import ParticleBG from "./components/ParticleBG";
+import CursorCanvas from "./components/CursorCanvas";
 
 export default function Home() {
   return (
@@ -10,10 +12,16 @@ export default function Home() {
         <div className={styles.heroTextWhite}>Hi!</div> <div className={styles.heroTextWhite}>I'm</div> <div className={styles.heroTextColor}>Dean</div> {/* background clip gradient on my name */}
         </div>
         <div className={styles.heroSubText}>I'm your new</div>
-        {/* this is where i'd put something like 'I'm your new... */}
-        <div className={styles.heroAccentText}>Designer, Develop....</div>
-        {/* text that rotates vertically between, Designer (some font), Developer (some mono font), Creative (some scripty font) */}
-        {/* https://www.youtube.com/watch?v=f0qX-lkk8Y8 */}
+        <div className={styles.heroAccentText}>
+          <span className={styles.designerText}>Designer</span>
+          <span className={styles.developerText}>Developer</span>
+          <span className={styles.creativeText}>Creative</span>
+          <span className={styles.designerText}>Designer</span>
+        </div> 
+        <div className={styles.heroCTA}>
+          <p>Here's Why</p>
+          {/* <img src="https://api.deandivizio.com/wp-content/uploads/2024/04/expand_more_FILL0_wght400_GRAD0_opsz24.png" /> */}
+          </div>
         </div>
       <div className={styles.workOverviewSection}>
         {/* Heading: I've Worked On...  */}
@@ -31,6 +39,8 @@ export default function Home() {
           {/* EMAIL  */}  
         </div>      
       </div>
+      <CursorCanvas />
+    <ParticleBG id="particles"/>
     </div>
   );
 }
