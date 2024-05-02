@@ -1,0 +1,42 @@
+.container{
+    width:100%;
+    display: flex;
+    padding: 4vh 0;
+    justify-content: space-between;
+}
+.heading{
+    font-size: calc(1rem + 2vw);
+    margin-bottom: 2vh;
+    font-style: normal;
+    font-weight: 400;
+}
+.body{
+    font-family: "Inter", sans-serif;
+    font-size: calc(1rem + 1vw);
+    font-weight: 100;
+    margin-bottom: 2vh;
+}
+.image{
+    width: 30%;
+    border-radius: 10px;
+    box-shadow: 0 0 50px rgba(255,255,255,0.15);
+}
+.textBlock{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 65%;
+    /* margin-left: 2vw; */
+}
+.links{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width:fit-content;
+}
+.link a{
+    font-family: 'Inter', sans-serif;
+    font-size: calc(1rem + 0.2vw);
+    font-weight: 200;
+    margin-right: 20px;
+}

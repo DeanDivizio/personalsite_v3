@@ -134,12 +134,25 @@
 .webSection {
   display: flex;
   flex-direction: column;
-  justify-content: top;
+  justify-content: center;
   align-items: flex-start;
-  width: 100vw;
+  padding: 0vw 4vw;
 }
-.webSection h3{
+.siteList{
+  align-content: center;
+  margin-bottom: 8vh;
+}
+
+.appList{
+  margin-bottom: 16vh;
+}
+.h3{
   text-align: left;
+  font-weight: 400;
+  /* border: 1px solid white;
+  width: fit-content;
+  padding-right: 1vw;
+  border-width: 0 1px 1px 0; */
 }
 
 .CTASection{
