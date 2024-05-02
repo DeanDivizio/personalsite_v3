@@ -1,0 +1,113 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-bottom: 8vw;
+    /* min-height: 100vh; */
+}
+.headingSection{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    margin-bottom: 4vw;
+}
+
+.container h2{
+    margin-bottom: 0;
+}
+
+.toggleContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+    position: relative;
+    width: calc((2rem + 3vw)*6);
+    height: calc((2rem + 3vw)*1.15);
+    border-radius: 10px;
+    background-color: #ccc;
+    cursor: pointer;
+    padding: 10px;
+    margin: 0 1vw;
+}
+
+.toggleButton {
+    position: absolute;
+   left: 10px;
+    width: calc((2rem + 3vw)*3);;
+    height: calc((2rem + 3vw)*1.15);
+    background-color: #fff;
+    border-radius: 10px;
+    transition: all 0.25s cubic-bezier(0, 0.65, 0, 1);
+    z-index: 0;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+}
+
+.toggleButton.active {
+    transform: translateX(calc((2rem + 3vw)*3));
+}
+
+.label {
+    font-family: "Inter", sans-serif;
+    font-size: calc(2rem + 3vw);
+    font-weight: 200;
+    letter-spacing: 0.1vw;
+    color:#383838;
+    margin: 0;
+    z-index: 1;
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0, 0.5, 0, 1);
+}
+
+.photoSection {
+    position: static;
+    width: 100%;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    transition: all 0.4s cubic-bezier(0, 0.5, 0, 1);
+    z-index: 0;
+}
+.videoSection {
+    position: static;
+    width: 100%;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin: 0;
+    margin-bottom: 0.55vw;
+    transition: all 0.4s cubic-bezier(0, 0.5, 0, 1);
+    z-index: 1;
+}
+.videoSection *{
+    width: 65vw;
+    height: 36vw;
+    border-radius: 10px;
+    box-shadow: 0 0px 20px rgba(255, 255, 255, 0.35);
+
+}
+
+@media screen and (max-width: 768px) {
+    .headingSection {
+        flex-direction: column;
+    }
+    .toggleContainer {
+        margin-bottom: 4vw;
+        margin-top: 4vw;
+    }
+    .videoSection * {
+        width: 90vw;
+        height: 50vw;
+    }
+    
+}

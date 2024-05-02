@@ -11,6 +11,7 @@
 }
 .pageContent{
   backdrop-filter: blur(5px);
+  background-color: #00000062;
 }
 .heroSection{
     display: flex;
@@ -42,12 +43,14 @@
   margin-bottom: -2vh;
 }
 .heroTextColor{
-  background-image: linear-gradient(120deg, #0fdf32 15%, #1992f5 100%);
+  background-image: linear-gradient(120deg, #2de93d 0%, #00e5ff 100%);
   background-clip: text;
+  background-size: 200% 200%;
+  animation: pulse 10s ease-in-out infinite;
   color: #00000000;
 }
 .heroSubText {
-  font-size: calc(1rem + 1.5vw);
+  font-size: calc(1.5rem + 1vw);
   font-weight: 100;
   letter-spacing: 0.3vw;
   font-style: italic;
@@ -102,6 +105,7 @@
   justify-content: center;
   align-items: center;
   margin-top: 20vh;
+  animation: pulseSize 10s ease-in-out infinite forwards;
 }
 .heroCTA img{
   transform: scale(1.5);
@@ -118,25 +122,35 @@
 .workOverviewSection{
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: top;
   align-items: center;
   margin: 0;
   padding: 10vh 0;
-  height: 80vh;
-  /* background-image: linear-gradient(120deg, #0e140eaf 0%, #141a1f9c 100%); */
-  background-color: #00000081;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 50px 5px rgba(0, 0, 0, 0.449);
+  min-height: 160vh;
+  background-image: linear-gradient(180deg, #00000000 0%, #000000 20%, #000000 80%, #00000062 100%);
+  /* box-shadow: 0 0 50px 5px rgba(0, 0, 0, 0.449); */
+  cursor: default;
+}
+.webSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: flex-start;
+  width: 100vw;
+}
+.webSection h3{
+  text-align: left;
 }
 
 .CTASection{
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   margin: 0;
-  padding: 20vh 0;
-  height: 80vh;
+  padding: 16vh 0;
+  height: 60vh;
+  background-color: #00000062;
 }
 
 .CTAButton{
@@ -157,6 +171,27 @@
   transform: scale(1.2);
   letter-spacing: 4px;
 }
+.card{
+  max-width: 20vw;
+  min-width: 200px;
+  padding: 2vw;
+  border-radius: 10px;
+}
+.card h3{
+  margin-top: 0;
+}
+
+.skillCardContainer{
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 0 1vw;
+  transition: all 2s ease;
+}
+.skillCardContainer p{
+  text-align: left;
+}
 
 @keyframes pulse {
   0%, 100% {
@@ -164,5 +199,14 @@
   }
   50% {
     background-position: 100% 50%;
+  }
+}
+
+@keyframes pulseSize {
+  0%, 15%, 45%, 80%, 100% {
+    transform: scale(1);
+  }
+  33%, 66% {
+    transform: scale(1.01);
   }
 }

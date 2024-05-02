@@ -1,0 +1,9 @@
+.card{
+    max-width: 20vw;
+    min-width: 200px;
+    padding: 2vw;
+    border-radius: 10px;
+}
+.card h3{
+    margin-top: 0;
+}
