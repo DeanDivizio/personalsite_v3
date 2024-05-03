@@ -32,7 +32,7 @@ const PhotoVideoSection = () => {
 
     const { ref, inView } = useInView({
         triggerOnce: false,
-        threshold: 0.1, // Adjust this value if needed
+        threshold: 0.4, // Adjust this value if needed
     });
     
     useEffect(() => {
