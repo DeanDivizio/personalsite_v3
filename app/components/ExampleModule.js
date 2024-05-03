@@ -3,15 +3,18 @@ import styles from './exampleModule.module.css';
 
 const ExampleModule = ({image, heading, body, linkToExample, linkToCode, reverse} ) => {
     
+    const isMobile = window.innerWidth <= 768;  // Detect screen width
+
     let orderStyle;
     let textAlign;
     let linkAlign;
-    if (reverse){
+    if (reverse && !isMobile){
         orderStyle = 'row-reverse';
         textAlign = 'right';
         linkAlign = 'flex-end';
     } else {
         orderStyle = 'row';
+        textAlign = 'left';
         linkAlign = 'flex-start';
     };
 
