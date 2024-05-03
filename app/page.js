@@ -218,9 +218,9 @@ export default function Home() {
       <div className={styles.pageContent}>
         <div className={styles.heroSection} ref={heroRef}>
           <div className={styles.heroHeadingTextContainer}> {/* going to need this to be a flex row */}
-            <motion.div className={styles.heroTextWhite} animate={heroControls} variants={fromBottomVariants} initial="hidden" exit="exit" custom={0}>Hi!</motion.div> <motion.div className={styles.heroTextWhite} animate={heroControls} variants={fromBottomVariants} initial="hidden" exit="exit" custom={0.2}>I'm</motion.div> <motion.div className={styles.heroTextColor} animate={heroControls} variants={fromBottomVariants} initial="hidden" exit="exit" custom={0.4}>Dean</motion.div> {/* background clip gradient on my name */}
+            <motion.div className={styles.heroTextWhite} animate={heroControls} variants={fromBottomVariants} initial="hidden" exit="exit" custom={0}>Hi!</motion.div> <motion.div className={styles.heroTextWhite} animate={heroControls} variants={fromBottomVariants} initial="hidden" exit="exit" custom={0.2}>{`I'm`}</motion.div> <motion.div className={styles.heroTextColor} animate={heroControls} variants={fromBottomVariants} initial="hidden" exit="exit" custom={0.4}>Dean</motion.div> {/* background clip gradient on my name */}
           </div>
-          <motion.div className={styles.heroSubText} animate={heroControls} variants={fromCenterVariants} initial="hidden" exit="exit" custom={2}>I'm your new...</motion.div>
+          <motion.div className={styles.heroSubText} animate={heroControls} variants={fromCenterVariants} initial="hidden" exit="exit" custom={2}>{`I'm your new...`}</motion.div>
           <motion.div className={styles.heroAccentText} animate={heroControls} variants={fromBottomVariants} initial="hidden" exit="exit" custom={3}>
             <span className={styles.developerText}>Developer</span>
             <span className={isDesktop ? styles.creativeText : styles.greenText}>Creative</span>
@@ -228,7 +228,7 @@ export default function Home() {
             <span className={styles.developerText}>Developer</span>
           </motion.div>
           <motion.div className={styles.heroCTA} animate={heroControls} variants={fromCenterVariants} initial="hidden" exit="exit" custom={7}>
-            <p>Here's Why</p>
+            <p>{`Here's Why`}</p>
             <img
               src="https://api.deandivizio.com/wp-content/uploads/2024/04/expand_more_FILL0_wght400_GRAD0_opsz24.png"
               style={{ filter: 'invert(1)' }}
@@ -236,7 +236,7 @@ export default function Home() {
           </motion.div>
         </div>
         <div className={styles.workOverviewSection}>
-          <h2>I've Built...</h2>
+          <h2>{`I've Built...`}</h2>
           <div className={styles.webSection}>
             <div className={styles.siteSection} ref={sitesRef}>
               <motion.h3 className={styles.h3} ref={sitesRef} animate={siteControls} variants={fromLeftVariants} initial="hidden" exit="exit" custom={0}>Web Sites</motion.h3>
@@ -277,7 +277,7 @@ export default function Home() {
           </div>
           <div ref={mediaRef}> {/* below components are animated in conditionally if not on mobile */}
             <motion.div className={styles.headingSection} animate={isDesktop ? mediaControls : undefined} variants={isDesktop ? fromBottomVariants : undefined} initial={isDesktop ? "hidden" : undefined} custom={0}>
-              <h2>I'm a</h2>
+              <h2>{`I'm a`}</h2>
               <div className={styles.toggleContainer} onClick={handleClick}>
                 <div className={styles.label} style={{ color: isToggled1 ? '#000000' : '#0073ff', fontWeight: isToggled1 ? '200' : '200', opacity: isToggled1 ? '0.65' : '1' }}>Photo</div>
                 <div className={`${styles.toggleButton} ${isToggled1 ? styles.active : ''}`}></div>
@@ -332,11 +332,11 @@ export default function Home() {
               <SkillCard content={card4Content} />
             </motion.div>
           </div>
-          <motion.p animate={skillsControls} variants={fromCenterVariants} initial="hidden" exit="exit" custom={2}>...and I'm always looking for new ways to grow.</motion.p>
+          <motion.p animate={skillsControls} variants={fromCenterVariants} initial="hidden" exit="exit" custom={2}>{`...and I'm always looking for new ways to grow.`}</motion.p>
         </div>
         <div className={styles.CTASection} ref={ctaRef}>
-          <h4>I think I'd make a great addition to your team.</h4>
-          <h2>Let's Chat!</h2>
+          <h4>{`I think I'd make a great addition to your team`}.</h4>
+          <h2>{`Let's Chat!`}</h2>
           <div className={styles.CTAButton}>
             <a href="mailto:contact@deandivizio.com">contact@deandivizio.com</a>
           </div>
