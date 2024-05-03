@@ -1,9 +1,14 @@
 import React from 'react';
 import styles from './exampleModule.module.css';
 
-const ExampleModule = ({image, heading, body, linkToExample, linkToCode, reverse} ) => {
+const ExampleModule = ({image, heading, body, linkToExample, linkToCode, mobile, reverse} ) => {
     
-    const isMobile = window.innerWidth <= 768;  // Detect screen width
+    let isMobile;
+    if (mobile){
+        isMobile = true;
+    }else {
+        isMobile = false;
+    }
 
     let orderStyle;
     let textAlign;

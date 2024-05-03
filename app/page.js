@@ -51,12 +51,6 @@ export default function Home() {
   let desktopThreshold = 0.4;
   let mobileThreshold = 0.3;
 
-  useEffect(() => {
-    if (typeof window !== 'undefined'){
-    const checkIsDesktop = () => window.innerWidth > 768;
-    setIsDesktop(checkIsDesktop());}
-  }, []);
-
   const [loveStyle, setLoveStyle] = useState({ color: '#ffffff', fontWeight: '400' }); // state for the style of the word "Love" in the "I Love Learning" section. used to enable the fade to gradient effect
   const [isDesktop, setIsDesktop] = useState(false); // state for detecting screen width. used to determine if the media section should animate in
 
@@ -193,7 +187,13 @@ export default function Home() {
     else { controls.start("exit") }
   }, [controls, inView]);
 
-
+  useEffect(() => {
+    const checkIsDesktop = () => window.innerWidth > 768;
+    setIsDesktop(checkIsDesktop());
+    const handleResize = () => setIsDesktop(checkIsDesktop());
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // States used for toggling between meddis sub-sections. there are three because the event is split into multiple stages that need to animate in sequence
   const [isToggled1, setToggle1] = useState(false);
