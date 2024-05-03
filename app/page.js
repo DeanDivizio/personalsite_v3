@@ -52,7 +52,7 @@ export default function Home() {
   let mobileThreshold = 0.3;
 
   const [loveStyle, setLoveStyle] = useState({ color: '#ffffff', fontWeight: '400' }); // state for the style of the word "Love" in the "I Love Learning" section. used to enable the fade to gradient effect
-  const [isDesktop, setIsDesktop] = useState(true); // state for detecting screen width. used to determine if the media section should animate in
+  const [isDesktop, setIsDesktop] = useState(false); // state for detecting screen width. used to determine if the media section should animate in
 
   const controls = useAnimation(); // animation controls for the images in the media section
   const heroControls = useAnimation(); // animation controls for hero section
@@ -188,16 +188,11 @@ export default function Home() {
   }, [controls, inView]);
 
   useEffect(() => {
-    // Check if window is defined
-    if (typeof window !== 'undefined') {
-      const checkIsDesktop = () => window.innerWidth > 768;
-      // Set initial value
-      setIsDesktop(checkIsDesktop());
-      // Update on resize
-      window.addEventListener('resize', () => setIsDesktop(checkIsDesktop()));
-      // Cleanup event listener
-      return () => window.removeEventListener('resize', () => setIsDesktop(checkIsDesktop()));
-    }
+    const checkIsDesktop = () => window.innerWidth > 768;
+    setIsDesktop(checkIsDesktop());
+    const handleResize = () => setIsDesktop(checkIsDesktop());
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   // States used for toggling between meddis sub-sections. there are three because the event is split into multiple stages that need to animate in sequence
