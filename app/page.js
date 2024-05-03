@@ -48,11 +48,9 @@ export default function Home() {
   // variables used accross all animations
   let delayFactor = 0.65;
   let startOffset = 0.25;
-  let desktopThreshold = 0.4;
-  let mobileThreshold = 0.3;
 
   const [loveStyle, setLoveStyle] = useState({ color: '#ffffff', fontWeight: '400' }); // state for the style of the word "Love" in the "I Love Learning" section. used to enable the fade to gradient effect
-  const [isDesktop, setIsDesktop] = useState(false); // state for detecting screen width. used to determine if the media section should animate in
+  const [isDesktop, setIsDesktop] = useState(true); // state for detecting screen width. used to determine if the media section should animate in
 
   const controls = useAnimation(); // animation controls for the images in the media section
   const heroControls = useAnimation(); // animation controls for hero section
@@ -109,25 +107,21 @@ export default function Home() {
     exit: { opacity: 0, transition: { duration: 1 } }
   };
 
-  const { ref, inView } = useInView({ // intersection observer for the images in media secion
-    triggerOnce: false,
-    threshold: 0.4,
-  });
   const { ref: heroRef, inView: heroInView } = useInView({ //Observer for the hero section
     triggerOnce: false,
     threshold: 0.3,
   });
   const { ref: sitesRef, inView: sitesInView } = useInView({ // Observer for the web sites section
     triggerOnce: false,
-    threshold: isDesktop ? desktopThreshold : mobileThreshold,
+    threshold: 0.3,
   });
   const { ref: appsRef, inView: appsInView } = useInView({ // Observer for the web apps section
     triggerOnce: false,
-    threshold: isDesktop ? desktopThreshold : mobileThreshold,
+    threshold: 0.3,
   });
   const { ref: mediaRef, inView: mediaInView } = useInView({ // Observer for the photo/video section
     triggerOnce: false,
-    threshold: isDesktop ? desktopThreshold : mobileThreshold,
+    threshold: 0.1,
   });
   const { ref: skillsRef, inView: skillsInView } = useInView({ // Observer for the skill section
     triggerOnce: false,
@@ -135,7 +129,7 @@ export default function Home() {
   });
   const { ref: ctaRef, inView: ctaInView } = useInView({ // Observer for the CTA section
     triggerOnce: false,
-    threshold: isDesktop ? desktopThreshold : mobileThreshold,
+    threshold: 0.3,
   });
 
   useEffect(() => {// animate the word "Love" in the "I Love Learning" section
@@ -165,10 +159,12 @@ export default function Home() {
   useEffect(() => {// animate in the photo video section
     if (mediaInView) {
       mediaControls.start("visible");
+      controls.start("visible");  
     } else
       if (!mediaInView && !skillsInView) {
         mediaControls.start("hidden");
-      } else { mediaControls.start("exit") };
+        controls.start("hidden");
+      } else { mediaControls.start("exit"), controls.start("exit")};
   }, [mediaControls, mediaInView]);
   useEffect(() => {// animate in the skill section
     if (skillsInView) {
@@ -177,15 +173,6 @@ export default function Home() {
       skillsControls.start('hidden');
     } else { skillsControls.start("exit") };
   }, [skillsControls, skillsInView]);
-  useEffect(() => {// animate the images in media section when they come into view
-    if (inView) {
-      controls.start("visible");
-    }
-    else if (!inView && !skillsInView) {
-      controls.start("hidden");
-    }
-    else { controls.start("exit") }
-  }, [controls, inView]);
 
   useEffect(() => {
     const checkIsDesktop = () => window.innerWidth > 768;
@@ -278,7 +265,7 @@ export default function Home() {
             </div>
           </div>
           <div ref={mediaRef}> {/* below components are animated in conditionally if not on mobile */}
-            <motion.div className={styles.headingSection} animate={isDesktop ? mediaControls : undefined} variants={isDesktop ? fromBottomVariants : undefined} initial={isDesktop ? "hidden" : undefined} custom={0}>
+            <motion.div className={styles.headingSection} animate={controls} variants={variants} initial={"hidden"} exit={"exit"} custom={0}>
               <h2>{`I'm a`}</h2>
               <div className={styles.toggleContainer} onClick={handleClick}>
                 <div className={styles.label} style={{ color: isToggled1 ? '#000000' : '#0073ff', fontWeight: isToggled1 ? '200' : '200', opacity: isToggled1 ? '0.65' : '1' }}>Photo</div>
@@ -293,16 +280,16 @@ export default function Home() {
                   <Masonry breakpointCols={breakpointColumnsObj}
                     className="my-masonry-grid"
                     columnClassName="my-masonry-grid_column"> 
-                    <motion.div ref={ref} animate={isDesktop ? controls : undefined} variants={isDesktop ? variants : undefined} initial={isDesktop ? "hidden" : undefined} exit={isDesktop ? "exit" : undefined} custom={0}>
+                    <motion.div animate={controls} variants={variants} initial={"hidden"} exit={"exit"} custom={0}>
                       <img src='https://api.deandivizio.com/wp-content/uploads/2024/02/IMG_6876-Large.jpeg' alt='An filmic modern portrait of a man in his late 20s' />
                     </motion.div>
-                    <motion.div animate={isDesktop ? controls : undefined} variants={isDesktop ? variants : undefined} initial={isDesktop ? "hidden" : undefined} exit={isDesktop ? "exit" : undefined} custom={0.33}>
+                    <motion.div animate={controls} variants={variants} initial={"hidden"} exit={"exit"} custom={0.33}>
                       <img src='https://api.deandivizio.com/wp-content/uploads/2024/04/justinPortrait-cropped.jpg ' alt='An stylized portrait of a man in his mid 20s' />
                     </motion.div>
-                    <motion.div animate={isDesktop ? controls : undefined} variants={isDesktop ? variants : undefined} initial={isDesktop ? "hidden" : undefined} exit={isDesktop ? "exit" : undefined} custom={0.66}>
+                    <motion.div animate={controls} variants={variants} initial={"hidden"} exit={"exit"} custom={0.66}>
                       <img src='https://api.deandivizio.com/wp-content/uploads/2024/02/IMG_6596-Edit-Large.jpeg' alt='An filmic modern portrait of a woman in her early 20s' />
                     </motion.div>
-                    <motion.div animate={isDesktop ? controls : undefined} variants={isDesktop ? variants : undefined} initial={isDesktop ? "hidden" : undefined} exit={isDesktop ? "exit" : undefined} custom={1}>
+                    <motion.div animate={controls} variants={variants} initial={"hidden"} exit={"exit"} custom={1}>
                       <img src='https://api.deandivizio.com/wp-content/uploads/2024/02/DSC03521-scaled.jpg' alt='An filmic professional portrait of a woman in her late 20s' />
                     </motion.div>
                   </Masonry>
