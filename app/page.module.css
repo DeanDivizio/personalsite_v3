@@ -320,7 +320,7 @@
   height: 36vw;
   border-radius: 10px;
   box-shadow: 0 0px 20px rgba(255, 255, 255, 0.35);
-
+  margin-bottom: 8vh;
 }
 
 @media screen and (max-width: 768px) {
@@ -338,5 +338,22 @@
   .heroAccentText{
     height: 80px;
    }
-  
+  .CTASection h4{
+    font-size: 1.5rem;
+  text-align: center;
+  }
+.CTASection h2{
+  font-size: 5rem;
+  text-align: center;
+}
+.CTASection a{
+  font-size: 2rem;
+}
+}
+.greenText{
+  font-family: "Rock Salt", cursive;
+  font-size: calc(2rem + 4vw);
+  font-style: italic;
+  letter-spacing: 0.6rem;
+  color: #2de93d;
 }

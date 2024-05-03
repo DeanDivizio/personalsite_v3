@@ -48,6 +48,8 @@ export default function Home() {
   // variables used accross all animations
   let delayFactor = 0.65;
   let startOffset = 0.25;
+  let desktopThreshold = 0.4;
+  let mobileThreshold = 0.3;
 
   const [loveStyle, setLoveStyle] = useState({ color: '#ffffff', fontWeight: '400' }); // state for the style of the word "Love" in the "I Love Learning" section. used to enable the fade to gradient effect
   const [isDesktop, setIsDesktop] = useState(window.innerWidth > 645); // state for detecting screen width. used to determine if the media section should animate in
@@ -117,15 +119,15 @@ export default function Home() {
   });
   const { ref: sitesRef, inView: sitesInView } = useInView({ // Observer for the web sites section
     triggerOnce: false,
-    threshold: 0.4,
+    threshold: isDesktop ? desktopThreshold : mobileThreshold,
   });
   const { ref: appsRef, inView: appsInView } = useInView({ // Observer for the web apps section
     triggerOnce: false,
-    threshold: 0.4,
+    threshold: isDesktop ? desktopThreshold : mobileThreshold,
   });
   const { ref: mediaRef, inView: mediaInView } = useInView({ // Observer for the photo/video section
     triggerOnce: false,
-    threshold: 0.4,
+    threshold: isDesktop ? desktopThreshold : mobileThreshold,
   });
   const { ref: skillsRef, inView: skillsInView } = useInView({ // Observer for the skill section
     triggerOnce: false,
@@ -133,7 +135,7 @@ export default function Home() {
   });
   const { ref: ctaRef, inView: ctaInView } = useInView({ // Observer for the CTA section
     triggerOnce: false,
-    threshold: 0.4,
+    threshold: isDesktop ? desktopThreshold : mobileThreshold,
   });
 
   useEffect(() => {// animate the word "Love" in the "I Love Learning" section
@@ -221,7 +223,7 @@ export default function Home() {
           <motion.div className={styles.heroSubText} animate={heroControls} variants={fromCenterVariants} initial="hidden" exit="exit" custom={2}>I'm your new...</motion.div>
           <motion.div className={styles.heroAccentText} animate={heroControls} variants={fromBottomVariants} initial="hidden" exit="exit" custom={3}>
             <span className={styles.developerText}>Developer</span>
-            <span className={styles.creativeText}>Creative</span>
+            <span className={isDesktop ? styles.creativeText : styles.greenText}>Creative</span>
             <span className={styles.designerText}>Designer</span>
             <span className={styles.developerText}>Developer</span>
           </motion.div>
