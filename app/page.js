@@ -52,7 +52,7 @@ export default function Home() {
   const mediaControls = useAnimation(); // animation controls for sites section
   const skillsControls = useAnimation(); // animation controls for sites section
   const fromBottomVariants = { // animation states for animating in from the bottom
-    hidden: { transition: 1, opacity: 0, y: 100 },
+    hidden: { transition: { duration: 1}, opacity: 0, y: 100 },
     visible: index => ({
       opacity: 1,
       y: 0,
@@ -80,7 +80,7 @@ export default function Home() {
     }),
   };
   const fromCenterVariants = { // animation states for animating in from center. starts invisible and smaller, grows and fades in.
-    hidden: { transition: { duration: 5}, opacity: 0, transform: 'scale(0.95)',},
+    hidden: { transition: { duration: 1}, opacity: 0, transform: 'scale(0.95)',},
     visible: index => ({
       opacity: 1,
       transform: 'scale(1)',
@@ -228,24 +228,24 @@ export default function Home() {
           <motion.div ref={mediaRef} animate={mediaControls} initial="hidden" variants={fromCenterVariants} custom={0}>
             <PhotoVideoSection />
           </motion.div>
-          <motion.h2 id="loveText" ref={skillsRef} animate={skillsControls} variants={fromBottomVariants} initial="hidden" exit="exit" custom={0} >I <span style={loveStyle} className={styles.heroTextColor}><em>Love</em></span> Learning...</motion.h2>
-          <div className={styles.skillCardContainer} style={{ opacity: skillSectionOpacity }}> 
-            <motion.div ref={skillsRef} animate={skillsControls} variants={fromBottomVariants} initial="hidden" exit="exit" custom={0}>
-              <SkillCard color="greenBG" content={card1Content} />
+          <motion.h2 id="loveText" animate={skillsControls} variants={fromBottomVariants} initial="hidden" custom={0} >I <span style={loveStyle} className={styles.heroTextColor}><em>Love</em></span> Learning...</motion.h2>
+          <div className={styles.skillCardContainer} ref={skillsRef} > 
+            <motion.div animate={skillsControls} variants={fromBottomVariants} initial="hidden" custom={0}>
+              <SkillCard content={card1Content} />
             </motion.div>
-            <motion.div ref={skillsRef} animate={skillsControls} variants={fromBottomVariants} initial="hidden" exit="exit" custom={0.33}>
-              <SkillCard color="greenBG" content={card2Content} />
+            <motion.div animate={skillsControls} variants={fromBottomVariants} initial="hidden" custom={0.33}>
+              <SkillCard content={card2Content} />
             </motion.div>
-            <motion.div ref={skillsRef} animate={skillsControls} variants={fromBottomVariants} initial="hidden" exit="exit" custom={0.66}>
-              <SkillCard color="greenBG" content={card3Content} />
+            <motion.div animate={skillsControls} variants={fromBottomVariants} initial="hidden" custom={0.66}>
+              <SkillCard content={card3Content} />
             </motion.div>
-            <motion.div ref={skillsRef} animate={skillsControls} variants={fromBottomVariants} initial="hidden" exit="exit" custom={1}>
-              <SkillCard color="greenBG" content={card4Content} />
+            <motion.div animate={skillsControls} variants={fromBottomVariants} initial="hidden" custom={1}>
+              <SkillCard content={card4Content} />
             </motion.div>
           </div>
-          <motion.p ref={skillsRef} animate={skillsControls} variants={fromCenterVariants} initial="hidden" exit="exit" custom={4}>...and I'm always looking for new ways to grow.</motion.p>
+          <motion.p animate={skillsControls} variants={fromCenterVariants} initial="hidden" exit="exit" custom={4}>...and I'm always looking for new ways to grow.</motion.p>
         </div>
-        <div className={styles.CTASection} ref={ctaRef}> {/* This section can be SSR */}
+        <div className={styles.CTASection} ref={ctaRef}> 
           <h4>I think I'd make a great addition to your team.</h4>
           <h2>Let's Chat</h2>
           <div className={styles.CTAButton}>
