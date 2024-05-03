@@ -188,8 +188,9 @@ export default function Home() {
   }, [controls, inView]);
 
   useEffect(() => {
+    if (typeof window !== 'undefined'){
     const checkIsDesktop = () => window.innerWidth > 768;
-    setIsDesktop(checkIsDesktop());
+    setIsDesktop(checkIsDesktop());}
   }, []);
 
   // States used for toggling between meddis sub-sections. there are three because the event is split into multiple stages that need to animate in sequence
