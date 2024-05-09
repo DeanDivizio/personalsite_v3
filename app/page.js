@@ -123,15 +123,19 @@ export default function Home() {
   });
   const { ref: appsRef, inView: appsInView } = useInView({ // Observer for the web apps section
     triggerOnce: false,
-    threshold: 0.4,
+    threshold: 0.3,
   });
   const { ref: mediaRef, inView: mediaInView } = useInView({ // Observer for the photo/video section
     triggerOnce: false,
     threshold: 0.2,
   });
+  const { ref: mediaContentRef, inView: mediaContentInView } = useInView({ // Observer for the photo/video section
+    triggerOnce: true,
+    threshold: 0.1,
+  });
   const { ref: skillsRef, inView: skillsInView } = useInView({ // Observer for the skill section
     triggerOnce: false,
-    threshold: 0.3,
+    threshold: 0.2,
   });
   const { ref: ctaRef, inView: ctaInView } = useInView({ // Observer for the CTA section
     triggerOnce: false,
@@ -171,7 +175,7 @@ export default function Home() {
         mediaControls.start("hidden");
         controls.start("hidden");
       } else { mediaControls.start("exit"), controls.start("exit")};
-  }, [mediaControls, mediaInView, isToggled3]);
+  }, [mediaControls, mediaInView]);
   useEffect(() => {// animate in the skill section
     if (skillsInView) {
       skillsControls.start("visible");
@@ -179,6 +183,12 @@ export default function Home() {
       skillsControls.start('hidden');
     } else { skillsControls.start("exit") };
   }, [skillsControls, skillsInView]);
+
+  useEffect(() => {// animate in the skill section
+    if (mediaContentInView) {
+      controls.start("visible");
+    } else { controls.start("exit") };
+  }, [controls, mediaContentInView, isToggled2]);
 
   useEffect(() => {
     const checkIsDesktop = () => window.innerWidth > 768;
@@ -277,22 +287,22 @@ export default function Home() {
               </div>
               <h2>Pro</h2>
             </motion.div>
-            <div className={styles.mediaContainer}>
+            <div className={styles.mediaContainer} ref={mediaContentRef}>
               {!isToggled3 &&
                 <div className={styles.photoSection} style={{ opacity: isToggled2 ? '0' : '1', transform: isToggled2 ? 'scale(0.9)' : 'scale(1)' }}>
                   <Masonry breakpointCols={breakpointColumnsObj}
                     className="my-masonry-grid"
                     columnClassName="my-masonry-grid_column"> 
-                    <motion.div animate={mediaControls} variants={fromBottomVariants} initial={"hidden"} exit={"exit"} custom={0}>
+                    <motion.div animate={controls} variants={fromBottomVariants} initial={"hidden"} exit={"exit"} custom={0}>
                       <img src='https://api.deandivizio.com/wp-content/uploads/2024/02/IMG_6876-Large.jpeg' alt='An filmic modern portrait of a man in his late 20s' />
                     </motion.div>
-                    <motion.div animate={mediaControls} variants={fromBottomVariants} initial={"hidden"} exit={"exit"} custom={0.3}>
+                    <motion.div animate={controls} variants={fromBottomVariants} initial={"hidden"} exit={"exit"} custom={0.3}>
                       <img src='https://api.deandivizio.com/wp-content/uploads/2024/04/justinPortrait-cropped.jpg ' alt='An stylized portrait of a man in his mid 20s' />
                     </motion.div>
-                    <motion.div animate={mediaControls} variants={fromBottomVariants} initial={"hidden"} exit={"exit"} custom={0.6}>
+                    <motion.div animate={controls} variants={fromBottomVariants} initial={"hidden"} exit={"exit"} custom={0.6}>
                       <img src='https://api.deandivizio.com/wp-content/uploads/2024/02/IMG_6596-Edit-Large.jpeg' alt='An filmic modern portrait of a woman in her early 20s' />
                     </motion.div>
-                    <motion.div animate={mediaControls} variants={fromBottomVariants} initial={"hidden"} exit={"exit"} custom={1}>
+                    <motion.div animate={controls} variants={fromBottomVariants} initial={"hidden"} exit={"exit"} custom={1}>
                       <img src='https://api.deandivizio.com/wp-content/uploads/2024/02/DSC03521-scaled.jpg' alt='An filmic professional portrait of a woman in her late 20s' />
                     </motion.div>
                   </Masonry>
