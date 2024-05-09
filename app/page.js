@@ -52,12 +52,18 @@ export default function Home() {
   const [loveStyle, setLoveStyle] = useState({ color: '#ffffff', fontWeight: '400' }); // state for the style of the word "Love" in the "I Love Learning" section. used to enable the fade to gradient effect
   const [isDesktop, setIsDesktop] = useState(true); // state for detecting screen width. used to determine if the media section should animate in
 
+  // States used for toggling between meddis sub-sections. there are three because the event is split into multiple stages that need to animate in sequence
+  const [isToggled1, setToggle1] = useState(false);
+  const [isToggled2, setToggle2] = useState(false);
+  const [isToggled3, setToggle3] = useState(false);
+
   const controls = useAnimation(); // animation controls for the images in the media section
   const heroControls = useAnimation(); // animation controls for hero section
   const siteControls = useAnimation(); // animation controls for sites section
   const appControls = useAnimation(); // animation controls for sites section
   const mediaControls = useAnimation(); // animation controls for sites section
   const skillsControls = useAnimation(); // animation controls for sites section
+
   const fromBottomVariants = { // animation states for animating in from the bottom
     hidden: { transition: { duration: 1 }, opacity: 0, y: 100 },
     visible: index => ({
@@ -117,11 +123,11 @@ export default function Home() {
   });
   const { ref: appsRef, inView: appsInView } = useInView({ // Observer for the web apps section
     triggerOnce: false,
-    threshold: 0.3,
+    threshold: 0.4,
   });
   const { ref: mediaRef, inView: mediaInView } = useInView({ // Observer for the photo/video section
     triggerOnce: false,
-    threshold: 0.1,
+    threshold: 0.2,
   });
   const { ref: skillsRef, inView: skillsInView } = useInView({ // Observer for the skill section
     triggerOnce: false,
@@ -165,7 +171,7 @@ export default function Home() {
         mediaControls.start("hidden");
         controls.start("hidden");
       } else { mediaControls.start("exit"), controls.start("exit")};
-  }, [mediaControls, mediaInView]);
+  }, [mediaControls, mediaInView, isToggled3]);
   useEffect(() => {// animate in the skill section
     if (skillsInView) {
       skillsControls.start("visible");
@@ -182,10 +188,7 @@ export default function Home() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // States used for toggling between meddis sub-sections. there are three because the event is split into multiple stages that need to animate in sequence
-  const [isToggled1, setToggle1] = useState(false);
-  const [isToggled2, setToggle2] = useState(false);
-  const [isToggled3, setToggle3] = useState(false);
+
 
   const handleClick = () => { // function to handle the toggling of the media sub-sections. #1 just handles the button. #2 handles styles for the photo section. #3 handles the sytles for the video section and the conditional rendering
     setToggle1(!isToggled1);
@@ -265,7 +268,7 @@ export default function Home() {
             </div>
           </div>
           <div ref={mediaRef}> {/* below components are animated in conditionally if not on mobile */}
-            <motion.div className={styles.headingSection} animate={controls} variants={variants} initial={"hidden"} exit={"exit"} custom={0}>
+            <motion.div className={styles.headingSection} animate={mediaControls} variants={fromBottomVariants} initial={"hidden"} exit={"exit"} custom={0}>
               <h2>{`I'm a`}</h2>
               <div className={styles.toggleContainer} onClick={handleClick}>
                 <div className={styles.label} style={{ color: isToggled1 ? '#000000' : '#0073ff', fontWeight: isToggled1 ? '200' : '200', opacity: isToggled1 ? '0.65' : '1' }}>Photo</div>
@@ -280,16 +283,16 @@ export default function Home() {
                   <Masonry breakpointCols={breakpointColumnsObj}
                     className="my-masonry-grid"
                     columnClassName="my-masonry-grid_column"> 
-                    <motion.div animate={controls} variants={variants} initial={"hidden"} exit={"exit"} custom={0}>
+                    <motion.div animate={mediaControls} variants={fromBottomVariants} initial={"hidden"} exit={"exit"} custom={0}>
                       <img src='https://api.deandivizio.com/wp-content/uploads/2024/02/IMG_6876-Large.jpeg' alt='An filmic modern portrait of a man in his late 20s' />
                     </motion.div>
-                    <motion.div animate={controls} variants={variants} initial={"hidden"} exit={"exit"} custom={0.33}>
+                    <motion.div animate={mediaControls} variants={fromBottomVariants} initial={"hidden"} exit={"exit"} custom={0.3}>
                       <img src='https://api.deandivizio.com/wp-content/uploads/2024/04/justinPortrait-cropped.jpg ' alt='An stylized portrait of a man in his mid 20s' />
                     </motion.div>
-                    <motion.div animate={controls} variants={variants} initial={"hidden"} exit={"exit"} custom={0.66}>
+                    <motion.div animate={mediaControls} variants={fromBottomVariants} initial={"hidden"} exit={"exit"} custom={0.6}>
                       <img src='https://api.deandivizio.com/wp-content/uploads/2024/02/IMG_6596-Edit-Large.jpeg' alt='An filmic modern portrait of a woman in her early 20s' />
                     </motion.div>
-                    <motion.div animate={controls} variants={variants} initial={"hidden"} exit={"exit"} custom={1}>
+                    <motion.div animate={mediaControls} variants={fromBottomVariants} initial={"hidden"} exit={"exit"} custom={1}>
                       <img src='https://api.deandivizio.com/wp-content/uploads/2024/02/DSC03521-scaled.jpg' alt='An filmic professional portrait of a woman in her late 20s' />
                     </motion.div>
                   </Masonry>
