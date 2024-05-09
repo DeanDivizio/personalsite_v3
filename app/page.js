@@ -123,7 +123,7 @@ export default function Home() {
   });
   const { ref: appsRef, inView: appsInView } = useInView({ // Observer for the web apps section
     triggerOnce: false,
-    threshold: 0.3,
+    threshold: 0.2,
   });
   const { ref: mediaRef, inView: mediaInView } = useInView({ // Observer for the photo/video section
     triggerOnce: false,
