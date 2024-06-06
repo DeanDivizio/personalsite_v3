@@ -238,31 +238,31 @@ export default function Home() {
           </motion.div>
         </div>
         <div className={styles.workOverviewSection}>
-          <h2>{`I've Built...`}</h2>
+          <h2>{`I Build Websites`}</h2>
           <div className={styles.webSection}>
             <div className={styles.siteSection} ref={sitesRef}>
-              <motion.h3 className={styles.h3} ref={sitesRef} animate={siteControls} variants={fromLeftVariants} initial="hidden" exit="exit" custom={0}>Web Sites</motion.h3>
+              {/* <motion.h3 className={styles.h3} ref={sitesRef} animate={siteControls} variants={fromLeftVariants} initial="hidden" exit="exit" custom={0}>Web Sites</motion.h3> */}
               <motion.div className={styles.siteList} >
-                <motion.div animate={siteControls} initial="hidden" variants={fromBottomVariants} custom={0.5}><ExampleModule // ExampleModule displays a site/app example with an image, heading, body, and relevant links. default is to have the image on the left. include the 'reverse' prop to have the image on the right.
+                <motion.div animate={siteControls} initial="hidden" variants={fromBottomVariants} custom={0}><ExampleModule // ExampleModule displays a site/app example with an image, heading, body, and relevant links. default is to have the image on the left. include the 'reverse' prop to have the image on the right.
                   image='https://api.deandivizio.com/wp-content/uploads/2024/05/DeanDivizioV3.jpg'
                   heading='This Site!'
                   body='Built with Next.js with minimalism in mind, this site is an example of a simple but elegant design, developed with a modern tech stack.'
                   linkToCode='https://github.com/DeanDivizio/personalsite_v3' /></motion.div>
-                <motion.div animate={siteControls} initial="hidden" variants={fromBottomVariants} custom={1}><ExampleModule
+                <motion.div animate={siteControls} initial="hidden" variants={fromBottomVariants} custom={0.5}><ExampleModule
                   image='https://api.deandivizio.com/wp-content/uploads/2024/04/ovrtoneHP.jpg'
                   heading='OVRTONE Media Group'
                   body='Designed and developed by me on Next.js, this site executes our brand image and provides us a web presence while we build the rest of the site.'
                   linkToCode='https://github.com/DeanDivizio/ovrtonesite'
                   linkToExample='https://www.ovrtonemedia.com'
                   reverse /></motion.div>
-                <motion.div animate={siteControls} initial="hidden" variants={fromBottomVariants} custom={1.5}><ExampleModule
+                <motion.div animate={siteControls} initial="hidden" variants={fromBottomVariants} custom={1}><ExampleModule
                   image='https://api.deandivizio.com/wp-content/uploads/2024/03/Screenshot-2024-03-13-at-8.59.57 AM-Large.jpeg'
                   heading='Captital Podiatry'
                   body="Originally designed and developed by me using WordPress, this site is a great example of a modern 'less is more' approach. While no longer maintained by me, enough of my original design is still present to warrant checking it out if you're interested."
                   linkToExample='https://capitalfeet.com' /></motion.div>
               </motion.div>
             </div>
-            <div className={styles.appSection} ref={appsRef}>
+            {/* <div className={styles.appSection} ref={appsRef}>
               <motion.h3 className={styles.h3} animate={appControls} initial="hidden" variants={fromBottomVariants} custom={0}>and Web Apps</motion.h3>
               <div className={styles.appList}>
                 <motion.div animate={appControls} initial="hidden" variants={fromBottomVariants} custom={0.6}><ExampleModule image='https://api.deandivizio.com/wp-content/uploads/2024/05/betterteslabrowser.jpg'
@@ -275,7 +275,7 @@ export default function Home() {
                   linkToCode='https://github.com/DeanDivizio/gymtrax'
                   reverse /></motion.div>
               </div>
-            </div>
+            </div> */}
           </div>
           <div ref={mediaRef}> {/* below components are animated in conditionally if not on mobile */}
             <motion.div className={styles.headingSection} animate={mediaControls} variants={fromBottomVariants} initial={"hidden"} exit={"exit"} custom={0}>
