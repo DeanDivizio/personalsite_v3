@@ -69,6 +69,7 @@
   flex-direction: column;
   background-image: linear-gradient(120deg, #0fc3df 15%, #19f55b 100%);
   background-clip: text;
+  -webkit-background-clip: text;
 }
 .heroAccentText span {
   animation: rotateWords 6s infinite both;
@@ -94,7 +95,7 @@
   font-size: calc(2rem + 4vw);
   font-style: italic;
   letter-spacing: 0.6rem;
-  color: #00000000;
+  color: transparent;
 
 }
 .heroCTA {
@@ -337,6 +338,9 @@
   }
   .heroAccentText{
     height: 80px;
+   }
+   .creativeText{
+    color: #2de93d;
    }
   .CTASection h4{
     font-size: 1.5rem;
