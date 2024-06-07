@@ -90,7 +90,7 @@
   font-style: monospace;
 }
 .creativeText{
-  font-family: "Rock Salt", cursive;
+  font-family: "Rock Salt", sans-serif;
   font-size: calc(2rem + 4vw);
   font-style: italic;
   letter-spacing: 0.6rem;
