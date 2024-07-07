@@ -35,7 +35,7 @@ let card4Content = (`<h3>Media</h3>
 <p>Photography</p>
 <p>Color Processing</p>
 <p>3D Rendering</p>
-<p>Basic Animation</p>
+<p>Motion Graphics</p>
 <p>Audio Engineering</p>`);
 
 

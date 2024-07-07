@@ -1,0 +1,47 @@
+.container {
+    display: flex;
+    position: relative;
+    padding: 20px 1vw;
+    z-index: 1001;
+    justify-content: space-between;
+    width: 98vw;
+    backdrop-filter: blur(5px);
+    background-color: #00000062;
+}
+.container p{
+    text-decoration: none;
+    font-style: normal;
+    font-size: 1.2rem;
+}
+.container a {
+    text-decoration: none;
+}
+.portfolioSection a :hover {
+    color: #fff;
+    text-decoration: underline;
+}
+.portfolioSection {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 0;
+}
+.portfolioSection p{
+    margin: 0 20px 0 0;
+}
+.blogSection p {
+    margin: 0;
+}
+.blogSection a :hover{
+    color: #fff;
+    text-decoration: underline;
+}
+.container button{
+    background-color: #00000000;
+    border: none;
+    color: #e6e6e6;
+}
+.container button :hover {
+    text-decoration: underline;
+    text-decoration-thickness: 2px ;
+}
